@@ -1,0 +1,229 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("Comfortaa.ttf");
+}
+
+body {
+    --gap: 1rem;
+    --text: #575443;
+    --background: #fffcf3;
+    --accent: #626213;
+    --android: #2fd37d;
+    --linux: #f2b911;
+    --windows: #017cd1;
+    background-color: var(--accent);
+    height: 100dvh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas:
+        'h h h h h'
+        's s s t t'
+        's s s t t'
+        's s s t t'
+        'c c c d d'
+        'c c c d d';
+
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: .5fr repeat(5, 1fr);
+    margin: 0;
+    gap: 1px
+}
+
+section {
+    background-color: var(--background);
+}
+
+#navbar {
+    grid-area: h;
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    height: 100%;
+    transition: .5s;
+    transform: rotate(0deg);
+}
+
+.dirty .icon {
+    transform: rotate(90deg);
+}
+
+#icon-top {
+    stroke: url(#grad);
+    left: 0%;
+    transform: rotate(0deg);
+}
+
+.dirty #icon-top {
+    left: calc(100% / var(--slide-count, 1) * var(--active-slide, 1));
+    transform: rotate(90deg) translateY(100%);
+}
+
+#icon-bottom {
+    stroke: var(--android);
+}
+
+#slide-container {
+    grid-area: s;
+    display: flex;
+    overflow: hidden;
+}
+
+#slide-container>.slide {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+#text-container {
+    grid-area: t;
+    overflow: hidden;
+}
+
+.text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--gap);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+span {
+    color: var(--text);
+    font-family: 'Comfortaa';
+}
+
+span.secondary {
+    color: var(--accent);
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4vw, 10rem);
+}
+
+.description {
+    font-size: clamp(1rem, 2vw, 3rem);
+
+}
+
+#control-container {
+    grid-area: c;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.arrow {
+    stroke: var(--accent);
+    width: 10rem;
+    height: 10rem;
+}
+
+#left-arrow {
+    transform: rotate(180deg);
+}
+
+#downloads-container {
+    grid-area: d;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap);
+    gap: var(--gap);
+    font-size: clamp(1rem, 2.3vw, 3rem);
+}
+
+#downloads-container>div {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#downloads-container>div>div {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
+
+#downloads-container svg {
+    width: clamp(2rem, 2vw, 3rem);
+    height: auto;
+}
+
+.dowload-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.dowload-links>img {
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--accent);
+    padding: 5px;
+}
+
+#dowloads-android svg {
+    fill: var(--android);
+}
+
+#dowloads-windows svg {
+    fill: var(--windows);
+}
+
+#dowloads-linux svg {
+    fill: var(--linux);
+}
+
+button {
+    outline: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: clamp(1rem, 1vw, 2rem);
+    cursor: pointer;
+
+}
+
+button.filled {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+button.outlined {
+    background-color: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a {
+    height: min-content;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* For Mobile View */
+@media all and (max-width: 768px) {
+    body {
+        grid-template-areas:
+            'h h h h h'
+            's s s s s'
+            's s s s s'
+            't t t t t'
+            'c c c c c'
+            'd d d d d';
+    }
+}

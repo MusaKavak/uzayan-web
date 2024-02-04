@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 512 512">
+    <g stroke-linecap="round" stroke-width="40" stroke="black">
+        <path id="icon-top" d="m168 80.6c-11.3 125 22.8 179 86.8 180 63.8 1.78 89.3-54.4 91.3-180" />
+        <path id="icon-bottom" d="m168 431c-11.3-125 22.8-179 86.8-180 63.8-1.78 89.3 54.4 91.3 180" />
+    </g>
+</svg>
